@@ -17,13 +17,16 @@ RUN a2enmod rewrite headers
 # Configurar el directorio de trabajo
 WORKDIR /var/www/html
 
+# Crear directorio de la aplicación
+RUN mkdir -p /var/www/html/DWES_P3_LUCIAI
+
 # Copiar los archivos de la aplicación
-COPY . /var/www/html/
+COPY . /var/www/html/DWES_P3_LUCIAI/
 
 # Configurar el directorio de carga de archivos
-RUN mkdir -p /var/www/html/uploads \
-    && chown -R www-data:www-data /var/www/html \
-    && chmod -R 755 /var/www/html
+RUN mkdir -p /var/www/html/DWES_P3_LUCIAI/uploads \
+    && chown -R www-data:www-data /var/www/html/DWES_P3_LUCIAI \
+    && chmod -R 755 /var/www/html/DWES_P3_LUCIAI
 
 # Configurar el archivo de configuración de Apache
 COPY docker/000-default.conf /etc/apache2/sites-available/000-default.conf
