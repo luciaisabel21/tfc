@@ -11,17 +11,35 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/DWES_P3_LUCIAI/model/Viaje.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/DWES_P3_LUCIAI/model/Carrito.php";
 
 function conectar(){
-    $server = "127.0.0.1";
-    $user = "root";
-    $password = "casavieja";
-    $db = "everlia";
+    // Configuración para PostgreSQL
+    $host = getenv('DB_HOST') ?: 'dpg-d4om0ui4d50c73909keg-a';
+    $port = getenv('DB_PORT') ?: '5432';
+    $dbname = getenv('DB_NAME') ?: 'everlia';
+    $user = getenv('DB_USER') ?: 'everlia_user';
+    $password = getenv('DB_PASSWORD') ?: '2mIbsUXJxMFFSIc15ZAbphqlC6Z4wX0c';
 
-    $conexion = new mysqli($server, $user, $password, $db);
+    // Cadena de conexión para PostgreSQL
+    $dsn = "pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$password";
 
-    if ($conexion->connect_error) {
-        die("Error de conexión: " . $conexion->connect_error);
+    try {
+        // Crear conexión PDO
+        $conexion = new PDO($dsn);
+        
+        // Configurar el modo de error para que lance excepciones
+        $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+        // Configurar el juego de caracteres
+        $conexion->exec("SET NAMES 'UTF8'");
+        
+        return $conexion;
+        
+    } catch (PDOException $e) {
+        // Registrar el error en el log del servidor
+        error_log("Error de conexión a la base de datos: " . $e->getMessage());
+        
+        // Mostrar un mensaje genérico al usuario
+        die("Error al conectar con la base de datos. Por favor, inténtalo más tarde.");
     }
-    return $conexion;
 }
 
 function crearTablaPersona() {
