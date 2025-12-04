@@ -1,6 +1,6 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /DWES_P3_LUCIAI/
+    RewriteBase /
     
     # Redirigir todas las solicitudes a index.php
     RewriteCond %{REQUEST_FILENAME} !-f
