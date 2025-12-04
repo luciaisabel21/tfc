@@ -1,14 +1,17 @@
 <?php
 
-include_once $_SERVER['DOCUMENT_ROOT'] . "/DWES_P3_LUCIAI/model/Persona.php";
-include_once $_SERVER['DOCUMENT_ROOT'] . "/DWES_P3_LUCIAI/model/Usuario.php";
-include_once $_SERVER['DOCUMENT_ROOT'] . "/DWES_P3_LUCIAI/model/Invitado.php";
-include_once $_SERVER['DOCUMENT_ROOT'] . "/DWES_P3_LUCIAI/model/ListaBoda.php";
-include_once $_SERVER['DOCUMENT_ROOT'] . "/DWES_P3_LUCIAI/model/Regalo.php";
-include_once $_SERVER['DOCUMENT_ROOT'] . "/DWES_P3_LUCIAI/model/Venta.php";
-include_once $_SERVER['DOCUMENT_ROOT'] . "/DWES_P3_LUCIAI/model/Producto.php";
-include_once $_SERVER['DOCUMENT_ROOT'] . "/DWES_P3_LUCIAI/model/Viaje.php";
-include_once $_SERVER['DOCUMENT_ROOT'] . "/DWES_P3_LUCIAI/model/Carrito.php";
+require_once __DIR__ . '/../model/Persona.php';
+require_once __DIR__ . '/../model/Usuario.php';
+require_once __DIR__ . '/../model/Invitado.php';
+require_once __DIR__ . '/../model/ListaBoda.php';
+require_once __DIR__ . '/../model/Regalo.php';
+require_once __DIR__ . '/../model/Venta.php';
+require_once __DIR__ . '/../model/Producto.php';
+require_once __DIR__ . '/../model/Viaje.php';
+require_once __DIR__ . '/../model/Carrito.php';
+
+// Añadir el archivo de configuración
+require_once __DIR__ . '/../config.php';
 
 function conectar(){
     // Configuración para PostgreSQL

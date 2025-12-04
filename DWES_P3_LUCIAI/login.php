@@ -1,8 +1,8 @@
 <?php
 session_start();
-include_once $_SERVER['DOCUMENT_ROOT'] . "/DWES_P3_LUCIAI/database/funcionesBD.php";
-include_once $_SERVER['DOCUMENT_ROOT'] . "/DWES_P3_LUCIAI/database/operacionesUsuario.php";
-include_once $_SERVER['DOCUMENT_ROOT'] . "/DWES_P3_LUCIAI/database/securizar.php";
+require_once __DIR__ . '/database/funcionesBD.php';
+require_once __DIR__ . '/database/operacionesUsuario.php';
+require_once __DIR__ . '/database/securizar.php';
 
 $email = $pass = $rol ="";
 $emailErr = $passErr = $rolErr = "";
