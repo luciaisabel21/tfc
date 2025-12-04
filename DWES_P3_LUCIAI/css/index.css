@@ -1,0 +1,334 @@
+/* Estilos generales */
+body {
+    background-color: white;
+}
+
+/* Estilos para el botón flotante de contacto */
+.btn-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(45deg, #ff69b4, #ff8c66);
+    color: white;
+    border-radius: 50px;
+    padding: 15px 25px;
+    text-decoration: none;
+    box-shadow: 0 5px 20px rgba(255, 105, 180, 0.3);
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    font-family: 'Arial', sans-serif;
+}
+
+.btn-float.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.btn-float i {
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+.btn-float span {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.btn-float:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4);
+    color: white;
+}
+
+/* Estilos para el carrusel */
+.carousel-item img {
+    height: 600px !important;
+    object-fit: cover !important;
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Estilos para las tarjetas */
+.card {
+    transition: transform 0.2s;
+    background-color: transparent;
+    border: none;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Estilos para la sección de viajes */
+#trips {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+#tripCarousel {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para los iconos de características */
+.feature-icon {
+    font-size: 2.5rem;
+    color: #ff69b4;
+    margin-bottom: 1rem;
+}
+
+/* Estilos para las tarjetas de testimonio */
+.testimonial-card {
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.testimonial-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.price-tag {
+    font-size: 1.2rem;
+    color: #ff69b4;
+    font-weight: bold;
+}
+
+/* Estilos para títulos de sección */
+.section-title {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 3rem !important;
+    color: #333;
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 3px;
+    bottom: -10px;
+    left: 20%;
+    background: linear-gradient(90deg, #ff69b4, #ff8c66);
+    border-radius: 3px;
+}
+
+/* Estilos para las tarjetas de producto */
+.product-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.product-img-container {
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+}
+
+.product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.05);
+}
+
+.product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 20px;
+    text-align: center;
+}
+
+.product-card:hover .product-overlay {
+    opacity: 1;
+}
+
+.product-info {
+    color: white;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-info {
+    transform: translateY(0);
+}
+
+.product-info h5 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.product-info p {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    color: #eee;
+}
+
+.price-badge {
+    display: inline-block;
+    background: linear-gradient(45deg, #ff69b4, #ff8c66);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+.product-preview {
+    padding: 20px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.product-preview h5 {
+    color: #333;
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.product-preview p {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+.btn-custom {
+    background: linear-gradient(45deg, #ff69b4, #ff8c66);
+    border: none;
+    color: white;
+    padding: 8px 25px;
+    border-radius: 25px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+}
+
+.btn-custom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(255, 105, 180, 0.4);
+    color: white;
+}
+
+/* Estilos para el slider de testimonios */
+.testimonial-slider {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.testimonial-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.testimonial-slide {
+    min-width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.testimonial-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 105, 180, 0.7);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.testimonial-arrow:hover {
+    background: #ff69b4;
+}
+
+.testimonial-arrow.prev {
+    left: 10px;
+}
+
+.testimonial-arrow.next {
+    right: 10px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .btn-float {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 20px;
+    }
+    
+    .btn-float span {
+        display: none;
+    }
+    
+    .btn-float i {
+        margin: 0;
+        font-size: 1.5rem;
+    }
+    
+    .carousel-item img {
+        height: 400px !important;
+    }
+    
+    .testimonial-card {
+        padding: 15px;
+    }
+}

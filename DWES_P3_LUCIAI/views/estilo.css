@@ -1,0 +1,36 @@
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #fdf7f7;
+  color: #333;
+}
+.seccion1 {
+  background: url('../imagenes/imagenBodaFondo.webp') no-repeat center center;
+  background-size: cover;
+  height: 600px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.seccion h1 {
+  font-size: 3rem;
+}
+.btn-custom {
+  background-color: #ff6f61;
+  color: white;
+}
+.btn-custom:hover {
+  background-color: #e65c50;
+}
+.card img {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Texto del carrusel de fotos con fondo semitransparente */
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.5); 
+  padding: 10px;
+}
