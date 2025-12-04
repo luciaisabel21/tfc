@@ -26,10 +26,12 @@ COPY . /var/www/html/DWES_P3_LUCIAI/
 # Configurar el directorio de carga de archivos
 RUN mkdir -p /var/www/html/DWES_P3_LUCIAI/uploads \
     && chown -R www-data:www-data /var/www/html/DWES_P3_LUCIAI \
-    && chmod -R 755 /var/www/html/DWES_P3_LUCIAI
+    && chmod -R 755 /var/www/html/DWES_P3_LUCIAI \
+    && chmod 644 /var/www/html/DWES_P3_LUCIAI/.htaccess
 
 # Configurar el archivo de configuración de Apache
 COPY docker/000-default.conf /etc/apache2/sites-available/000-default.conf
+RUN chmod 644 /etc/apache2/sites-available/000-default.conf
 
 # Variables de entorno para la base de datos
 ENV DB_HOST=dpg-d4om0ui4d50c73909keg-a
