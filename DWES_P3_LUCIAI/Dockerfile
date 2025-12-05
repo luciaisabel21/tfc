@@ -15,16 +15,20 @@ RUN apt-get update && apt-get install -y \
 RUN a2enmod rewrite headers
 
 # Configurar el directorio de trabajo
-WORKDIR /var/www/html/DWES_P3_LUCIAI
+WORKDIR /var/www/html
 
 # Copiar los archivos de la aplicación
-COPY . /var/www/html/DWES_P3_LUCIAI/
+COPY . /var/www/html/
 
-# Configurar el directorio de carga de archivos y permisos
-RUN mkdir -p /var/www/html/DWES_P3_LUCIAI/uploads \
-    && chown -R www-data:www-data /var/www/html/DWES_P3_LUCIAI \
-    && chmod -R 755 /var/www/html/DWES_P3_LUCIAI \
-    && [ -f /var/www/html/DWES_P3_LUCIAI/.htaccess ] && chmod 644 /var/www/html/DWES_P3_LUCIAI/.htaccess || echo "No se encontró .htaccess, continuando..."
+# Configurar permisos
+RUN chown -R www-data:www-data /var/www/html && \
+    chmod -R 755 /var/www/html && \
+    chmod 644 /var/www/html/.htaccess 2>/dev/null || echo "No se encontró .htaccess, continuando..."
+
+# Configurar el directorio de carga de archivos
+RUN mkdir -p /var/www/html/uploads && \
+    chown -R www-data:www-data /var/www/html/uploads && \
+    chmod -R 755 /var/www/html/uploads
 
 # Configurar el archivo de configuración de Apache
 COPY docker/000-default.conf /etc/apache2/sites-available/000-default.conf

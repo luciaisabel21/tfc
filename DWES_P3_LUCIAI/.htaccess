@@ -1,17 +1,15 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    
-    # Usar la ruta base correcta
     RewriteBase /
+    
+    # Redirigir a HTTPS
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
     
     # Si el archivo o directorio no existe, redirigir a index.php
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
-    
-    # Redireccionar a HTTPS si no está ya en HTTPS
-    RewriteCond %{HTTPS} off
-    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
 
 # Configuración de errores
