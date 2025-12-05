@@ -4,7 +4,7 @@ FROM php:8.2-apache
 # Instalar dependencias del sistema
 RUN apt-get update && apt-get install -y \
     libpng-dev \
-    libonick-dev \
+    libonig-dev \
     libxml2-dev \
     libpq-dev \
     zip \
