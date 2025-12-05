@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: tfc-cmct
+    env: php
+    rootDirectory: DWES_P3_LUCIAI
+    buildCommand: ""
+    startCommand: ""
+    envVars:
+      - key: DB_HOST
+        value: dpg-d4om0ui4d50c73909keg-a
+      - key: DB_PORT
+        value: "5432"
+      - key: DB_NAME
+        value: everlia
+      - key: DB_USER
+        value: everlia_user
+      - key: DB_PASSWORD
+        value: 2mIbsUXJxMFFSIc15ZAbphqlC6Z4wX0c
