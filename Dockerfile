@@ -15,10 +15,10 @@ RUN apt-get update && apt-get install -y \
 RUN a2enmod rewrite headers
 
 # Configurar el directorio de trabajo
-WORKDIR /var/www/html
+WORKDIR /var/www/html/DWES_P3_LUCIAI
 
 # Copiar los archivos de la aplicación
-COPY . /var/www/html/
+COPY . /var/www/html/DWES_P3_LUCIAI/
 
 # Configurar el directorio de carga de archivos y permisos
 RUN mkdir -p /var/www/html/DWES_P3_LUCIAI/uploads \

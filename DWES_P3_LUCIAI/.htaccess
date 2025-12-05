@@ -1,11 +1,23 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
     
-    # Evitar redirecciones infinitas
-    RewriteBase /DWES_P3_LUCIAI/
+    # Usar la ruta base correcta
+    RewriteBase /
     
     # Si el archivo o directorio no existe, redirigir a index.php
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+    
+    # Redireccionar a HTTPS si no está ya en HTTPS
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
+
+# Configuración de errores
+ErrorDocument 404 /index.php
+ErrorDocument 500 /error/500.php
+
+# Configuración de PHP
+php_flag display_errors on
+php_value error_reporting E_ALL
