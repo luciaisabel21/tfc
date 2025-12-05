@@ -1,8 +1,10 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /
     
-    # Redirigir todas las solicitudes a index.php
+    # Evitar redirecciones infinitas
+    RewriteBase /DWES_P3_LUCIAI/
+    
+    # Si el archivo o directorio no existe, redirigir a index.php
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
